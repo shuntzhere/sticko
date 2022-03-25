@@ -1,0 +1,45 @@
+.main {
+  width: 1280px;
+  height: 80vh;
+  overflow-y: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+.main__content {
+  width: 50%;
+}
+
+.main__content--img {
+  height: 50%;
+  width: 500px;
+}
+
+.main__content--info {
+  position: relative;
+  height: 40%;
+}
+
+.main__content--title {
+  position: absolute;
+  font-size: 5rem;
+  font-family: "Cinzel", serif;
+  font-weight: var(--font-heavy);
+  line-height: 5rem;
+  word-wrap: break-word;
+  color: var(--color-secondary);
+}
+
+.main__content--description {
+  font-size: 1.5rem;
+  font-family: "Cinzel", serif;
+  font-weight: var(--font-medium);
+  position: absolute;
+  top: 70%;
+  color: var(--color-secondary);
+}
+
+.main__content--categories {
+  font-family: "Cinzel", serif;
+  font-weight: var(--font-regular);
+}

@@ -1,4 +1,31 @@
-* {
-  margin: 0;
-  padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Lobster&family=Rubik:wght@300;400;500;700&display=swap");
+
+:root {
+  /* colors  */
+  --color-primary: #1cc7d0;
+  --color-secondary: #013368;
+
+  --font-primary: #4cd658;
+  --font-secondary: #f7775e;
+
+  --color-white: #f3f4f7;
+  --color-black: #000000;
+  --color-shadow: #a8b5c5;
+
+  /* font families */
+  font-family: "Cinzel", serif;
+  font-family: "Lobster", cursive;
+  font-family: "Rubik", sans-serif;
+
+  /* font weights */
+  --font-light: 300;
+  --font-regualar: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+  --font-heavy: 900;
+}
+
+body {
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
