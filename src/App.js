@@ -1,11 +1,11 @@
 import "./App.css";
-import logo from "./logo.png";
+import { Navbar } from "./components/Navbar/Navbar";
 import { Paths } from "./routes/Paths";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Selling stickers</h1>
+    <div className="app">
+      <Navbar />
       <Paths />
     </div>
   );
