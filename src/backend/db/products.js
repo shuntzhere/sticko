@@ -15,6 +15,7 @@ export const products = [
     img: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/red-handfish-thymichthys-c2-a0politus-rare-and-critically-news-photo-1628801894.jpg?crop=0.97088xw:1xh;center,top&resize=980:*",
     description: "Lost 200 years ago",
     rating: "3.2",
+    color: "black",
   },
   {
     _id: uuid(),
@@ -25,6 +26,7 @@ export const products = [
     img: "https://files.worldwildlife.org/wwfcmsprod/images/Marine_Iguana_Portrait/story_full_width/943c3pnxb6_Medium_WW288384.jpg",
     description: "World's only ocean-going lizards",
     rating: "3.7",
+    color: "coral",
   },
   {
     _id: uuid(),
@@ -35,6 +37,7 @@ export const products = [
     img: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-toad-sole-habitat-on-earth-monteverde-mountain-top-news-photo-1607468651.?crop=1xw:1xh;center,top&resize=980:*",
     description: "Lost 40 years ago",
     rating: "3.6",
+    color: "black",
   },
   {
     _id: uuid(),
@@ -45,6 +48,7 @@ export const products = [
     img: "https://files.worldwildlife.org/wwfcmsprod/images/Monarchs_Spring_2020/featured_story/5683rlbl0v_monarchs_spring2020.jpg",
     description: "https://www.youtube.com/watch?v=lWOySU_hAz0",
     rating: "3.9",
+    color: "coral",
   },
   {
     _id: uuid(),
@@ -55,6 +59,7 @@ export const products = [
     img: "https://cdn.britannica.com/71/174271-050-B90CC219/Siberian-tiger-Longleat-Safari-Adventure-Park-England.jpg?q=60",
     description: "Only 4000 left in the wild",
     rating: "5.0",
+    color: "red",
   },
 
   {
@@ -66,6 +71,7 @@ export const products = [
     img: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dodo-raphus-cucullatus-didus-ineptus-extinct-flightless-news-photo-1607528588.?crop=1.00xw:0.871xh;0,0.0222xh&resize=980:*",
     description: "Lost 370 years ago",
     rating: "2.4",
+    color: "black",
   },
   {
     _id: uuid(),
@@ -76,6 +82,7 @@ export const products = [
     img: "https://cdn.britannica.com/73/161673-050-7071CE8B/boat-blue-whale-Sea-of-Cortez-Mexico.jpg?q=60",
     description: "Only 25000 roam the oceans",
     rating: "3.7",
+    color: "red",
   },
   {
     _id: uuid(),
@@ -86,6 +93,7 @@ export const products = [
     img: "https://files.worldwildlife.org/wwfcmsprod/images/Dugong_swimming/hero_full/1k8mrfg9gr_Medium_WW1221.jpg",
     description: "Also called the 'Sea-cows'",
     rating: "3.1",
+    color: "coral",
   },
   {
     _id: uuid(),
@@ -96,6 +104,7 @@ export const products = [
     img: "https://files.worldwildlife.org/wwfcmsprod/images/HERO_Giant_Tortoise/hero_full/4erl8edrbp_Medium_WW288394.jpg",
     description: "Natives of Galapagos Islands",
     rating: "2.9",
+    color: "coral",
   },
   {
     _id: uuid(),
@@ -106,6 +115,7 @@ export const products = [
     img: "https://files.worldwildlife.org/wwfcmsprod/images/Pangolin_curled_up/portrait_overview/1thbwthr4f_shutterstock_215851909.jpg",
     description: "Highly smuggled across",
     rating: "2.1",
+    color: "coral",
   },
   {
     _id: uuid(),
@@ -116,6 +126,7 @@ export const products = [
     img: "https://cdn.britannica.com/52/170952-050-A545E35D/carnivore-Snow-leopard-regions-subcontinent-Asia-Indian.jpg?q=60",
     description: "Fewer than 6500 left",
     rating: "4.6",
+    color: "red",
   },
   {
     _id: uuid(),
@@ -126,6 +137,7 @@ export const products = [
     img: "https://cdn.britannica.com/68/100268-004-DDE6C0EF/Whooping-cranes-International-Crane-Foundation-Baraboo-Wisconsin.jpg?q=60",
     description: "Nearly 400 left",
     rating: "2.8",
+    color: "red",
   },
   {
     _id: uuid(),
@@ -136,5 +148,6 @@ export const products = [
     img: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/najin-and-her-offspring-fatu-two-female-northern-white-news-photo-1607463656.?crop=1xw:1xh;center,top&resize=980:*",
     description: "Lost 2 years ago",
     rating: "4.4",
+    color: "black",
   },
 ];

@@ -11,3 +11,25 @@
   gap: 1.5rem;
   overflow: auto;
 }
+
+.card-header {
+  font-size: 1.5rem;
+}
+
+.change__cart {
+  font-size: 0.8rem;
+}
+
+.rating {
+  font-weight: var(--font-medium);
+  font-size: 1rem;
+}
+
+.sticko-price {
+  font-weight: var(--font-regular);
+  margin-top: 0.5rem;
+}
+
+.vertical-badge {
+  margin-top: -0.2rem;
+}

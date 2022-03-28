@@ -1,171 +1,66 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import "./ProductList.css";
 
 export const ProductList = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const fetchProducts = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get("/api/products");
+      setProducts(data.products);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  });
+
   return (
     <main className="listing__main">
-      <div className="card badge-card">
-        <div className="vertical-badge">Endangered</div>
-        <img
-          className="card-image"
-          src="/assets/image/leatherback.jpg"
-          alt="image"
-        />
-        <div className="card-content">
-          <h3 className="card-header">Leatherbacks</h3>
-          <p className="card-text">On the verge of extinction.</p>
-          <div className="card-info flex flex-items-center justify-around">
-            <p className="change__cart">
-              + <span>5</span> - of
-            </p>
-            <h4 className="rating">3000</h4>
-          </div>
-          <div className="flex flex-items-center justify-between">
-            <i
-              className="fas fa-heart fa-2x listing__svg"
-              style={{ color: "red" }}
-            />
-            <button className="btn primary-btn" type="button">
-              Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="card badge-card">
-        <div className="vertical-badge extinct">Extinct</div>
-        <img
-          className="card-image"
-          src="/assets/image/leatherback.jpg"
-          alt="image"
-        />
-        <div className="card-content">
-          <h3 className="card-header">Leatherbacks</h3>
-          <p className="card-text">On the verge of extinction.</p>
-          <div className="card-info flex flex-items-center justify-around">
-            <p className="change__cart">
-              + <span>0</span> - of
-            </p>
-            <h4 className="rating">0</h4>
-          </div>
-          <div className="flex flex-items-center justify-between">
-            <i
-              className="fas fa-heart fa-2x listing__svg"
-              style={{ color: "red" }}
-            />
-            <button className="btn primary-btn" type="button">
-              Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="card badge-card">
-        <div className="vertical-badge">Endangered</div>
-        <img
-          className="card-image"
-          src="/assets/image/leatherback.jpg"
-          alt="image"
-        />
-        <div className="card-content">
-          <h3 className="card-header">Leatherbacks</h3>
-          <p className="card-text">On the verge of extinction.</p>
-          <div className="card-info flex flex-items-center justify-around">
-            <p className="change__cart">
-              + <span>17</span> - of
-            </p>
-            <h4 className="rating">3000</h4>
-          </div>
-          <div className="flex flex-items-center justify-between">
-            <i
-              className="fas fa-heart fa-2x listing__svg"
-              style={{ color: "red" }}
-            />
-            <button className="btn primary-btn" type="button">
-              Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="card badge-card">
-        <div className="vertical-badge vulnerable">Vulnerable</div>
-        <img
-          className="card-image"
-          src="/assets/image/leatherback.jpg"
-          alt="image"
-        />
-        <div className="card-content">
-          <h3 className="card-header">Leatherbacks</h3>
-          <p className="card-text">On the verge of extinction.</p>
-          <div className="card-info flex flex-items-center justify-around">
-            <p className="change__cart">
-              + <span>18</span> - of
-            </p>
-            <h4 className="rating">50000</h4>
-          </div>
-          <div className="flex flex-items-center justify-between">
-            <i
-              className="fas fa-heart fa-2x listing__svg"
-              style={{ color: "red" }}
-            />
-            <button className="btn primary-btn" type="button">
-              Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="card badge-card">
-        <div className="vertical-badge extinct">Vulnerable</div>
-        <img
-          className="card-image"
-          src="/assets/image/leatherback.jpg"
-          alt="image"
-        />
-        <div className="card-content">
-          <h3 className="card-header">Leatherbacks</h3>
-          <p className="card-text">On the verge of extinction.</p>
-          <div className="card-info flex flex-items-center justify-around">
-            <p className="change__cart">
-              + <span>0</span> - of
-            </p>
-            <h4 className="rating">0</h4>
-          </div>
-          <div className="flex flex-items-center justify-between">
-            <i
-              className="fas fa-heart fa-2x listing__svg"
-              style={{ color: "red" }}
-            />
-            <button className="btn primary-btn" type="button">
-              Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className="card badge-card">
-        <div className="vertical-badge vulnerable">Vulnerable</div>
-        <img
-          className="card-image"
-          src="/assets/image/leatherback.jpg"
-          alt="image"
-        />
-        <div className="card-content">
-          <h3 className="card-header">Leatherbacks</h3>
-          <p className="card-text">On the verge of extinction.</p>
-          <div className="card-info flex flex-items-center justify-around">
-            <p className="change__cart">
-              + <span>20</span> - of
-            </p>
-            <h4 className="rating">50000</h4>
-          </div>
-          <div className="flex flex-items-center justify-between">
-            <i
-              className="fas fa-heart fa-2x listing__svg"
-              style={{ color: "red" }}
-            />
-            <button className="btn primary-btn" type="button">
-              Cart
-            </button>
-          </div>
-        </div>
-      </div>
+      {products &&
+        products.map(
+          ({ id, title, name, price, img, description, rating, color }) => (
+            <div className="card badge-card">
+              <div
+                className="vertical-badge"
+                style={{ backgroundColor: color }}
+              >
+                {title}
+              </div>
+              <img className="card-image" src={img} alt="image" />
+              <div className="card-content">
+                <h3 className="card-header">{name}</h3>
+                <p className="card-text">{description}</p>
+                <div className="card-info flex flex-items-center justify-around">
+                  <div className="change__cart">
+                    <AddIcon />
+                    <span>quantity</span>
+                    <RemoveIcon />
+                  </div>
+                  <h4 className="rating">{rating}</h4>
+                </div>
+                <h3 className="sticko-price">PRICE: {price}</h3>
+                <div className="flex flex-items-center justify-around">
+                  <FavoriteRoundedIcon style={{ color: "red" }} />
+                  <button className="btn primary-btn" type="button">
+                    Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          )
+        )}
     </main>
   );
 };
