@@ -1,13 +1,17 @@
 import React from "react";
+import { useFilters } from "../../context/FilterContext";
 import "./Sidebar.css";
 
 export const Sidebar = () => {
+  const { state, filterDispatch } = useFilters();
   return (
     <aside className="listing__sidebar">
       <div className="listings__sidebar--filter flex flex-items-center justify-between">
         <div className="listings__sidebar--header">Filters</div>
         <div>
-          <a href="#">Clear All</a>
+          <a href="#" onClick={() => filterDispatch({ type: "RESET" })}>
+            Clear All
+          </a>
         </div>
       </div>
       <div className="divider" />
@@ -16,57 +20,98 @@ export const Sidebar = () => {
         <form className="flex flex-col">
           <div className="form__group flex flex-items-center justify-between">
             <label htmlFor="category__1">Endangered</label>
-            <input type="checkbox" id="category__1" defaultValue="Endangered" />
+            <input
+              type="checkbox"
+              id="category__1"
+              value="ENDANGERED"
+              checked={state.title.includes("ENDANGERED")}
+              onChange={(e) =>
+                filterDispatch({ type: "TITLE", payload: e.target.value })
+              }
+            />
           </div>
           <div className="form__group flex flex-items-center justify-between">
             <label htmlFor="category__2">Vulnerable</label>
-            <input type="checkbox" id="category__2" defaultValue="Vulnerable" />
+            <input
+              type="checkbox"
+              id="category__2"
+              value="VULNERABLE"
+              checked={state.title.includes("VULNERABLE")}
+              onChange={(e) =>
+                filterDispatch({ type: "TITLE", payload: e.target.value })
+              }
+            />
           </div>
           <div className="form__group flex flex-items-center justify-between">
             <label htmlFor="category__3">Extinct</label>
-            <input type="checkbox" id="category__1" defaultValue="Extinct" />
+            <input
+              type="checkbox"
+              id="category__3"
+              value="EXTINCT"
+              checked={state.title.includes("EXTINCT")}
+              onChange={(e) =>
+                filterDispatch({ type: "TITLE", payload: e.target.value })
+              }
+            />
           </div>
         </form>
       </div>
+
       <div className="divider" />
+
       <div className="listings__sidebar--rating flex flex-col">
         <div className="listings__sidebar--title">Ratings</div>
-        <div className="form__group flex flex-items-center justify-between">
-          <label htmlFor="4__stars">4 stars or more</label>
-          <input type="radio" id="4__star" name="ratings" defaultValue={4} />
+        <div className="flex justify-between">
+          <label>1🌟</label>
+          <label>5🌟</label>
         </div>
-        <div className="form__group flex flex-items-center justify-between">
-          <label htmlFor="3__stars">3 stars or more</label>
-          <input type="radio" id="3__star" name="ratings" defaultValue={3} />
-        </div>
-        <div className="form__group flex flex-items-center justify-between">
-          <label htmlFor="2__stars">2 stars or more</label>
-          <input type="radio" id="2__star" name="ratings" defaultValue={2} />
-        </div>
-        <div className="form__group flex flex-items-center justify-between">
-          <label htmlFor="1__stars">1 star or more</label>
-          <input type="radio" id="1__star" name="ratings" defaultValue={1} />
-        </div>
+        <input
+          type="range"
+          min="1"
+          max="5"
+          value={state.rating}
+          step="1"
+          list="tickmarks"
+          onChange={(e) =>
+            filterDispatch({ type: "RATING", payload: e.target.value })
+          }
+        />
+        <datalist id="tickmarks">
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+          <option value="4"></option>
+        </datalist>
       </div>
+
       <div className="divider" />
+
       <div className="listings__sidebar--category flex flex-col">
-        <div className="listings__sidebar--title">Sort by</div>
+        <div className="listings__sidebar--title">Sort by Price</div>
         <div className="form__group flex flex-items-center justify-between">
-          <label htmlFor="sort__increase">Credit- Low to High</label>
+          <label htmlFor="sort__increase">Low to High</label>
           <input
             type="radio"
             id="sort__increase"
             name="sort"
-            defaultValue="toHigh"
+            value="toHigh"
+            checked={state.sort === "toHigh"}
+            onClick={(e) =>
+              filterDispatch({ type: "SORT", payload: e.target.value })
+            }
           />
         </div>
         <div className="form__group flex flex-items-center justify-between">
-          <label htmlFor="sort__decrease">Credit- High to Low</label>
+          <label htmlFor="sort__decrease">High to Low</label>
           <input
             type="radio"
             id="sort__decrease"
             name="sort"
-            defaultValue="toLow"
+            value="toLow"
+            checked={state.sort === "toLow"}
+            onClick={(e) =>
+              filterDispatch({ type: "SORT", payload: e.target.value })
+            }
           />
         </div>
       </div>

@@ -4,11 +4,13 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import "./ProductList.css";
+import { useFilters } from "../../context/FilterContext";
 
 export const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const { filteredList } = useFilters();
 
   const fetchProducts = async () => {
     try {
@@ -28,10 +30,10 @@ export const ProductList = () => {
 
   return (
     <main className="listing__main">
-      {products &&
-        products.map(
+      {filteredList &&
+        filteredList.map(
           ({ id, title, name, price, img, description, rating, color }) => (
-            <div className="card badge-card">
+            <div className="card badge-card" key={id}>
               <div
                 className="vertical-badge"
                 style={{ backgroundColor: color }}

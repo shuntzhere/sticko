@@ -19,7 +19,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Vulnerable",
+    title: "VULNERABLE",
     name: "Marine Iguanas",
     price: "750",
     categoryName: "Fauna",
@@ -41,7 +41,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Vulnerable",
+    title: "VULNERABLE",
     name: "Monarch Butterfly",
     price: "1600",
     categoryName: "Fauna",
@@ -86,7 +86,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Vulnerable",
+    title: "VULNERABLE",
     name: "Dugong",
     price: "800",
     categoryName: "Fauna",
@@ -97,7 +97,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Vulnerable",
+    title: "VULNERABLE",
     name: "Giant Tortoise",
     price: "1800",
     categoryName: "Fauna",
@@ -108,7 +108,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Vulnerable",
+    title: "VULNERABLE",
     name: "Pangolin",
     price: "200",
     categoryName: "Fauna",
