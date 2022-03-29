@@ -1,7 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import "./ProductList.css";
 import { useFilters } from "../../context/FilterContext";
@@ -44,15 +42,10 @@ export const ProductList = () => {
               <div className="card-content">
                 <h3 className="card-header">{name}</h3>
                 <p className="card-text">{description}</p>
-                <div className="card-info flex flex-items-center justify-around">
-                  <div className="change__cart">
-                    <AddIcon />
-                    <span>quantity</span>
-                    <RemoveIcon />
-                  </div>
-                  <h4 className="rating">{rating}</h4>
+                <div className="card-info flex flex-items-center justify-around mt-3">
+                  <h4 className="rating">{rating}🌟</h4>
+                  <h4 className="sticko-price">PRICE: {price}</h4>
                 </div>
-                <h3 className="sticko-price">PRICE: {price}</h3>
                 <div className="flex flex-items-center justify-around">
                   <FavoriteRoundedIcon style={{ color: "red" }} />
                   <button className="btn primary-btn" type="button">
