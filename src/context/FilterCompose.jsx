@@ -11,18 +11,16 @@ export const sortProducts = (state, products) => {
 
 export const ratingFunction = (state, products) => {
   const { rating } = state;
-  const productList = [...products];
   return rating === ""
-    ? productList
-    : productList.filter((product) => product.rating <= rating);
+    ? products
+    : products.filter((product) => product.rating <= rating);
 };
 
 export const titleFunction = (state, products) => {
   const { title } = state;
-  const productList = [...products];
   if (title.length === 0) {
-    return productList;
+    return products;
   } else {
-    return productList.filter((product) => title.includes(product.title));
+    return products.filter((product) => title.includes(product.title));
   }
 };
