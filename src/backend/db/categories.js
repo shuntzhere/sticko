@@ -12,7 +12,9 @@ export const categories = [
     title: "Vulnerable",
     description:
       "A vulnerable species is a species which has been categorized by the International Union for Conservation of Nature that is threatened with extinction unless the circumstances that are threatening its survival and reproduction improve.",
+
     color: "darkorange",
+
   },
   {
     _id: uuid(),
