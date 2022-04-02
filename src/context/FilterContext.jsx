@@ -40,7 +40,7 @@ export const FilterContextProvider = ({ children }) => {
     ratingFunction,
     titleFunction
   )(products);
-  console.log(filteredList);
+  // console.log(filteredList);
 
   return (
     <FilterContext.Provider value={{ state, filterDispatch, filteredList }}>

@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Cart, Home, Login, Products, Signup, Wishlist } from "../pages/_pages";
+import { Cart, Home, Login, Products, Signup, Wishlist } from "../pages";
 
 export const Paths = () => {
   return (

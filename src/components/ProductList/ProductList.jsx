@@ -5,26 +5,7 @@ import "./ProductList.css";
 import { useFilters } from "../../context/FilterContext";
 
 export const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
   const { filteredList } = useFilters();
-
-  const fetchProducts = async () => {
-    try {
-      setLoading(true);
-      const { data } = await axios.get("/api/products");
-      setProducts(data.products);
-    } catch (error) {
-      setError(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchProducts();
-  });
 
   return (
     <main className="listing__main">

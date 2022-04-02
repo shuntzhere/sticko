@@ -1,0 +1,32 @@
+.cards__wishlist {
+  text-align: center;
+}
+
+.card__container {
+  margin: 0 auto;
+  background-color: orange;
+}
+
+.card {
+  position: relative;
+}
+
+.card__svg {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+}
+
+.header__icon {
+  margin-top: 1rem;
+}
+
+.cart__header {
+  margin: 2rem auto;
+  font-family: "Cinzel", serif;
+  font-weight: var(--font-bold);
+}
+
+.card-info {
+  color: var(--color-black);
+}
