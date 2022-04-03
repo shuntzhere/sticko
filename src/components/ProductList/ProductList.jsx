@@ -1,5 +1,3 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import "./ProductList.css";
 import { useFilters } from "../../context/FilterContext";
