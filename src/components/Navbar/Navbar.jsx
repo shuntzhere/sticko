@@ -3,8 +3,11 @@ import "./Navbar.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
+import { useCart } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+  const { state } = useCart();
   return (
     <header className="header">
       <nav className="header__nav flex flex-items-center justify-between">
@@ -24,13 +27,15 @@ export const Navbar = () => {
         </div>
 
         <div className="header__nav--menu flex justify-between">
-          <a href="#" className="">
+          <Link to="/wishlist">
             <FavoriteIcon />
-          </a>
-          <a href="#" className="">
+            <span>{state.wishlistItems.length}</span>
+          </Link>
+          <Link to="/cart">
             <ShoppingCartIcon />
-          </a>
-          <a href="#" className="">
+            <span>{state.cartItems.length}</span>
+          </Link>
+          <a href="#">
             <PersonIcon />
           </a>
         </div>
