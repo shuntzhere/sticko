@@ -1,0 +1,22 @@
+.cards__cart {
+  text-align: center;
+}
+
+.cart__management {
+  width: 350px;
+  font-family: "Cinzel", serif;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  padding: 1rem;
+  border-radius: 1%;
+  box-shadow: 0 5px 60px rgba(0, 0, 0, 0.12), 0 1px 40px rgba(0, 0, 0, 0.24);
+}
+
+.cart__title {
+  padding: 2rem auto;
+}
+
+.cart__details--text {
+  font-size: 1.1rem;
+  font-weight: var(--font-medium);
+}

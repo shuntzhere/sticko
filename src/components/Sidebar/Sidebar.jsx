@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFilters } from "../../context/FilterContext";
 import "./Sidebar.css";
 
 export const Sidebar = () => {
   const { state, filterDispatch } = useFilters();
+
+  useEffect(() => {
+    let filter = window.location.search.split("=")[1];
+    if (filter) {
+      filter = filter.toUpperCase();
+      filterDispatch({ type: "TITLE", payload: filter });
+    }
+    return () => {
+      filterDispatch({ type: "RESET" });
+    };
+  }, [window.location.search]);
+
   return (
     <aside className="listing__sidebar">
       <div className="listings__sidebar--filter flex flex-items-center justify-between">

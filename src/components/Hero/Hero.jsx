@@ -37,7 +37,12 @@ export const Hero = () => {
           <h4>See for yourself</h4>
           {category &&
             category.map(({ _id, title, color }) => (
-              <Category key={_id} title={title} color={color} />
+              <Category
+                key={_id}
+                title={title}
+                color={color}
+                href={title.toLowerCase()}
+              />
             ))}
         </div>
       </div>
