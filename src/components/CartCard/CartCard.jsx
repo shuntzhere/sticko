@@ -4,12 +4,27 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../../context/WishlistContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const CartCard = ({ _id, img, name, price, description, quantity }) => {
   const [count, setCount] = useState(quantity);
   const { cartDispatch } = useCart();
   const { wishlistDispatch } = useWishlist();
-  // const finalPrice =
+
+  const callNotify = () =>
+    toast.success("Product has been moved to wishlist", {
+      position: "top-right",
+      autoClose: 3000,
+      closeOnClick: true,
+    });
+
+  const callRemove = () =>
+    toast.info("Product has been removed from wishlist", {
+      position: "top-right",
+      autoClose: 3000,
+      closeOnClick: true,
+    });
 
   useEffect(() => {
     count < 1 || isNaN(count) ? setCount(1) : setCount(count);
@@ -20,7 +35,7 @@ export const CartCard = ({ _id, img, name, price, description, quantity }) => {
   }, [count]);
 
   return (
-    <div className="card horizontal-card flex" key={_id}>
+    <div className="card horizontal-card flex">
       <img className="card-image" src={img} alt="product-image" />
       <div className="card-content">
         <h3 className="card-header">{name}</h3>
@@ -47,7 +62,7 @@ export const CartCard = ({ _id, img, name, price, description, quantity }) => {
         <button
           className="btn primary-btn"
           type="button"
-          onClick={() =>
+          onClick={() => {
             wishlistDispatch({
               type: "ADD_TO_WISHLIST",
               item: {
@@ -58,23 +73,26 @@ export const CartCard = ({ _id, img, name, price, description, quantity }) => {
                 price: price,
                 description: description,
               },
-            })
-          }
+            });
+            callNotify();
+          }}
         >
           Move to Wishlist
         </button>
         <button
           className="btn primary-btn"
           type="button"
-          onClick={() =>
+          onClick={() => {
             cartDispatch({
               type: "REMOVE_FROM_CART",
               payload: _id,
-            })
-          }
+            }),
+              callRemove();
+          }}
         >
           Remove from Cart
         </button>
+        <ToastContainer />
       </div>
     </div>
   );

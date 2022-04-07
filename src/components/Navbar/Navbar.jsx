@@ -47,13 +47,11 @@ export const Navbar = () => {
               {state.cartItems.length > 0 ? state.cartItems.length : ""}
             </span>
           </Link>
-          <a href="#">
-            <PersonIcon />
-          </a>
         </div>
 
+
         <Link to="/login" className="btn">
-          Login
+          Log In
         </Link>
       </nav>
     </header>

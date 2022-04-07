@@ -4,6 +4,8 @@ import { useFilters } from "../../context/FilterContext";
 import { useCart } from "../../context/CartContext";
 import { useEffect, useState } from "react";
 import { useWishlist } from "../../context/WishlistContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ProductList = () => {
   const { filteredList } = useFilters();
@@ -12,6 +14,20 @@ export const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const callCart = () =>
+    toast.success("Product has been added to cart.", {
+      position: "top-center",
+      autoClose: 3000,
+      closeOnClick: true,
+    });
+
+  const callWishlist = () =>
+    toast.success("Product has been added to wishlist.", {
+      position: "top-center",
+      autoClose: 3000,
+      closeOnClick: true,
+    });
 
   const fetchProducts = async () => {
     try {
@@ -52,7 +68,7 @@ export const ProductList = () => {
                 <div className="flex flex-items-center justify-around">
                   <FavoriteRoundedIcon
                     style={{ color: "red", cursor: "pointer" }}
-                    onClick={() =>
+                    onClick={() => {
                       wishlistDispatch({
                         type: "ADD_TO_WISHLIST",
                         item: {
@@ -63,13 +79,14 @@ export const ProductList = () => {
                           rating: rating,
                           img: img,
                         },
-                      })
-                    }
+                      });
+                      callWishlist();
+                    }}
                   />
                   <button
                     className="btn primary-btn"
                     type="button"
-                    onClick={() =>
+                    onClick={() => {
                       cartDispatch({
                         type: "ADD_TO_CART",
                         item: {
@@ -81,11 +98,13 @@ export const ProductList = () => {
                           img: img,
                           quantity: 1,
                         },
-                      })
-                    }
+                      });
+                      callCart();
+                    }}
                   >
                     Cart
                   </button>
+                  <ToastContainer />
                 </div>
               </div>
             </div>
