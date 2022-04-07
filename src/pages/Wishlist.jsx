@@ -6,7 +6,7 @@ export const Wishlist = ({}) => {
   const { wishlistItems } = wishlistState;
   return (
     <main className="cards__wishlist">
-      <h1 className="cart__header">Your Wishlist</h1>
+      <h1 className="cart__header">Your Wishlist({wishlistItems?.length})</h1>
       <div className="cart-container flex justify-evenly">
         {wishlistItems.map(({ _id, img, name, price, description, rating }) => {
           return (
