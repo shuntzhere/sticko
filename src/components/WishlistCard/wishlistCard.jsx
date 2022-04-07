@@ -18,7 +18,7 @@ export const WishlistCard = ({
   const { cartDispatch } = useCart();
 
   const callNotify = () =>
-    toast.success("Product has been added to the cart", {
+    toast.success("Product has been added to the cart.", {
       position: "top-right",
       autoClose: 3000,
       closeOnClick: true,
