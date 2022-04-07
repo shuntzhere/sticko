@@ -27,7 +27,7 @@ export const CartCard = ({ _id, img, name, price, description, quantity }) => {
         <p className="card-text">{description}</p>
         <div className="card-info flex flex-items-center justify-around">
           <p className="change__cart">{quantity}</p>
-          <h4 className="rating">{price * quantity}</h4>
+          <h4 className="rating">{price}</h4>
         </div>
         <div className="cart__buttons">
           <AddIcon

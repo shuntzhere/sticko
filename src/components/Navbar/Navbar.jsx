@@ -51,9 +51,10 @@ export const Navbar = () => {
             <PersonIcon />
           </a>
         </div>
-        <a href="#" className="btn">
+
+        <Link to="/login" className="btn">
           Login
-        </a>
+        </Link>
       </nav>
     </header>
   );
