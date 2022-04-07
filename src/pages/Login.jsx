@@ -4,6 +4,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
 export const Login = () => {
+  document.title = " Log In";
   return (
     <section className="form__container">
       <form id="login-form" className="flex flex-col flex-items-center">
