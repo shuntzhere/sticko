@@ -4,6 +4,7 @@ import { useWishlist } from "../context/WishlistContext";
 export const Wishlist = ({}) => {
   const { wishlistState } = useWishlist();
   const { wishlistItems } = wishlistState;
+  document.title = "Wishlist";
   return (
     <main className="cards__wishlist">
       <h1 className="cart__header">Your Wishlist({wishlistItems?.length})</h1>

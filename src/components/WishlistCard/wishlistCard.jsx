@@ -3,6 +3,8 @@ import "./WishlistCard.css";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { useWishlist } from "../../context/WishlistContext";
 import { useCart } from "../../context/CartContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const WishlistCard = ({
   _id,
@@ -14,16 +16,32 @@ export const WishlistCard = ({
 }) => {
   const { wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
+
+  const callNotify = () =>
+    toast.success("Product has been added to the cart", {
+      position: "top-right",
+      autoClose: 3000,
+      closeOnClick: true,
+    });
+
+  const callDelete = () =>
+    toast.success("Product has been removed from wishlist", {
+      position: "top-right",
+      autoClose: 3000,
+      closeOnClick: true,
+    });
+
   return (
     <div className="card">
       <DeleteOutlineIcon
         className="card__svg"
-        onClick={() =>
+        onClick={() => {
           wishlistDispatch({
             type: "REMOVE_FROM_WISHLIST",
             payload: _id,
-          })
-        }
+          });
+          callDelete();
+        }}
       />
       <img src={img} className="card-image" />
       <div className="card-content">
@@ -36,7 +54,7 @@ export const WishlistCard = ({
         <button
           className="btn primary-btn"
           type="button"
-          onClick={() =>
+          onClick={() => {
             cartDispatch({
               type: "ADD_TO_CART",
               item: {
@@ -48,11 +66,13 @@ export const WishlistCard = ({
                 description: description,
                 quantity: 1,
               },
-            })
-          }
+            });
+            callNotify();
+          }}
         >
           Add to Cart
         </button>
+        <ToastContainer />
       </div>
     </div>
   );

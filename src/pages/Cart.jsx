@@ -8,6 +8,8 @@ export const Cart = () => {
   const { state } = useCart();
   const { cartItems } = state;
   console.log("cart", cartItems.length);
+
+  document.title = "cart";
   return (
     <main className="cards__cart">
       <h1 className="cart__header">Your Cart ({cartItems?.length})</h1>

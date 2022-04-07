@@ -47,20 +47,10 @@ export const Navbar = () => {
               {state.cartItems.length > 0 ? state.cartItems.length : ""}
             </span>
           </Link>
-
-          <Link to="/">
-            <FavoriteIcon />
-          </Link>
-          <Link to="/">
-            <ShoppingCartIcon />
-          </Link>
-          <Link to="/">
-            <PersonIcon />
-          </Link>
         </div>
-        <a href="#" className="btn">
-          Login
-        </a>
+        <Link to="/login" className="btn">
+          Log In
+        </Link>
       </nav>
     </header>
   );
