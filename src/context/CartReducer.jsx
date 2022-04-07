@@ -7,7 +7,7 @@ export const CartReducer = (state, action) => {
       };
 
     case "REMOVE_FROM_CART":
-      const index = cartItems.findIndex((e) => e._id === action.payload._id);
+      const index = state.cartItems.findIndex((e) => e._id === action.payload);
       const newCartItems = [...state.cartItems];
       if (index >= 0) {
         newCartItems.splice(index, 1);
@@ -20,41 +20,21 @@ export const CartReducer = (state, action) => {
         cartItems: newCartItems,
       };
 
-    case "INCREMENT_QUANTITY":
-      const itemToIncrement = cartItems.find(
+    case "CART_QUANTITY":
+      const itemToIncrement = state.cartItems.find(
         (e) => e._id === action.payload._id
       );
       const updatedCartItems = [...state.cartItems];
       const incrementCartItems = updatedCartItems.map((e) =>
-        e._id === itemToIncrement._id ? { ...e, count: e.count + 1 } : { ...e }
+        e._id === itemToIncrement._id
+          ? { ...e, quantity: action.payload.quantity }
+          : { ...e }
       );
+
       return {
         ...state,
         cartItems: incrementCartItems,
       };
-
-    case "DECREMENT_QUANTITY":
-      const itemToDecrement = cartItems.find(
-        (e) => e._id === action.payload._id
-      );
-      if (itemToDecrement.count === 1) {
-        const decrementCartItems = cartItems.filter(
-          (e) => e._id !== itemToDecrement._id
-        );
-        return {
-          ...state,
-          cartItems: decrementCartItems,
-          // cartTotalPrice: state.cartTotalPrice - action.payload.price,
-        };
-      } else {
-        const decrementCartItems = cartItems.map((e) =>
-          e._id === itemToDecrement._id ? { ...e, count: e.count - 1 } : { e }
-        );
-        return { ...state, cartItems: decrementCartItems };
-      }
-
-    case "ADD_TO_WISHLIST":
-      return { ...state, wishlistItems: state.wishlistItems + 1 };
 
     default:
       return state;

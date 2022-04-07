@@ -4,7 +4,6 @@ import "./Sidebar.css";
 
 export const Sidebar = () => {
   const { state, filterDispatch } = useFilters();
-  // console.log(window.location.search);
 
   useEffect(() => {
     let filter = window.location.search.split("=")[1];

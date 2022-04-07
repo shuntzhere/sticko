@@ -15,6 +15,10 @@
   position: absolute;
   right: 5%;
   top: 5%;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  color: red;
 }
 
 .header__icon {

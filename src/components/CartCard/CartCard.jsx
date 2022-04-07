@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./CartCard.css";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useCart } from "../../context/CartContext";
+import { useWishlist } from "../../context/WishlistContext";
 
-export const CartCard = ({ _id, img, name, price, description }) => {
+export const CartCard = ({ _id, img, name, price, description, quantity }) => {
+  const [count, setCount] = useState(quantity);
   const { cartDispatch } = useCart();
+  const { wishlistDispatch } = useWishlist();
+  // const finalPrice =
+
+  useEffect(() => {
+    count < 1 || isNaN(count) ? setCount(1) : setCount(count);
+    cartDispatch({
+      type: "CART_QUANTITY",
+      payload: { _id: _id, quantity: count },
+    });
+  }, [count]);
+
   return (
     <div className="card horizontal-card flex" key={_id}>
       <img className="card-image" src={img} alt="product-image" />
@@ -13,34 +26,38 @@ export const CartCard = ({ _id, img, name, price, description }) => {
         <h3 className="card-header">{name}</h3>
         <p className="card-text">{description}</p>
         <div className="card-info flex flex-items-center justify-around">
-          <p className="change__cart">20 units</p>
-          <h4 className="rating">{price}</h4>
+          <p className="change__cart">{quantity}</p>
+          <h4 className="rating">{price * quantity}</h4>
         </div>
         <div className="cart__buttons">
           <AddIcon
-            onClick={() =>
-              cartDispatch({
-                type: "INCREMENT_QUANTITY",
-                payload: _id,
-              })
-            }
+            style={{ cursor: "pointer" }}
+            onClick={() => setCount(count + 1)}
+          />
+          <input
+            type="text"
+            value={count}
+            onChange={(e) => setCount(e.target.value)}
           />
           <RemoveIcon
-            onClick={() =>
-              cartDispatch({
-                type: "DECREMENT_QUANTITY",
-                payload: _id,
-              })
-            }
+            style={{ cursor: "pointer" }}
+            onClick={() => setCount(count - 1)}
           />
         </div>
         <button
           className="btn primary-btn"
           type="button"
           onClick={() =>
-            cartDispatch({
+            wishlistDispatch({
               type: "ADD_TO_WISHLIST",
-              payload: _id,
+              item: {
+                key: _id,
+                _id: _id,
+                img: img,
+                name: name,
+                price: price,
+                description: description,
+              },
             })
           }
         >
@@ -56,7 +73,7 @@ export const CartCard = ({ _id, img, name, price, description }) => {
             })
           }
         >
-          Remove to Cart
+          Remove from Cart
         </button>
       </div>
     </div>

@@ -7,10 +7,10 @@ export const CartDetail = () => {
     state: { cartItems },
   } = useCart();
 
+  const totalCredit = 10000;
   const bill = cartItems.reduce((acc, curr) => {
-    return acc + Number(curr.price);
+    return acc + Number(curr.price * curr.quantity);
   }, 0);
-  console.log(bill);
 
   return (
     <div className="cart__management">
@@ -18,7 +18,7 @@ export const CartDetail = () => {
       <div className="divider" />
       <div className="flex justify-between">
         <p className="cart__details--text">Available Credit</p>
-        <p className="cart__details--text">8000</p>
+        <p className="cart__details--text">{totalCredit}</p>
       </div>
       <div className="flex justify-between">
         <p className="cart__details--text">Cost Price</p>
@@ -27,10 +27,14 @@ export const CartDetail = () => {
       <div className="divider" />
       <div className="flex justify-between">
         <p className="cart__details--text">Remaining Credit</p>
-        <p className="cart__details--text">5000</p>
+        <p className="cart__details--text">{totalCredit - bill}</p>
       </div>
-      <button className="btn primary-btn" type="button">
-        Confirm Order
+      <button
+        className="btn primary-btn"
+        type="button"
+        style={{ backgroundColor: "green", cursor: "pointer" }}
+      >
+        Checkout
       </button>
     </div>
   );

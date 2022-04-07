@@ -13,14 +13,16 @@ export const Cart = () => {
       <h1 className="cart__header">Your Cart ({cartItems?.length})</h1>
       <div className="cart__details flex flex-items-center justify-evenly">
         <div className="cart__items">
-          {cartItems.map(({ _id, img, name, price, description }) => {
+          {cartItems.map(({ _id, img, name, price, description, quantity }) => {
             return (
               <CartCard
+                key={_id}
                 _id={_id}
                 img={img}
                 name={name}
                 price={price}
                 description={description}
+                quantity={quantity}
               />
             );
           })}

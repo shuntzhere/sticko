@@ -6,7 +6,6 @@ const CartContext = createContext();
 const CartContextProvider = ({ children }) => {
   const [state, cartDispatch] = useReducer(CartReducer, {
     cartItems: [],
-    // wishlistItems: [],
   });
   return (
     <CartContext.Provider value={{ state, cartDispatch }}>

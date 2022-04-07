@@ -3,12 +3,12 @@ import "./ProductList.css";
 import { useFilters } from "../../context/FilterContext";
 import { useCart } from "../../context/CartContext";
 import { useEffect, useState } from "react";
+import { useWishlist } from "../../context/WishlistContext";
 
 export const ProductList = () => {
   const { filteredList } = useFilters();
   const { cartDispatch, state } = useCart();
-  const { cartItems } = state;
-  console.log(cartItems);
+  const { wishlistDispatch, wishlistState } = useWishlist();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -53,7 +53,7 @@ export const ProductList = () => {
                   <FavoriteRoundedIcon
                     style={{ color: "red", cursor: "pointer" }}
                     onClick={() =>
-                      cartDispatch({
+                      wishlistDispatch({
                         type: "ADD_TO_WISHLIST",
                         item: {
                           _id: _id,
@@ -61,6 +61,7 @@ export const ProductList = () => {
                           title: title,
                           description: description,
                           rating: rating,
+                          img: img,
                         },
                       })
                     }
@@ -78,6 +79,7 @@ export const ProductList = () => {
                           description: description,
                           rating: rating,
                           img: img,
+                          quantity: 1,
                         },
                       })
                     }
