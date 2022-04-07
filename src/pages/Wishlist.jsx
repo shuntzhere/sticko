@@ -1,7 +1,7 @@
 import React from "react";
 import { WishlistCard } from "../components/WishlistCard/WishlistCard";
 import { useWishlist } from "../context/WishlistContext";
-export const Wishlist = ({}) => {
+export const Wishlist = () => {
   const { wishlistState } = useWishlist();
   const { wishlistItems } = wishlistState;
   document.title = "Wishlist";
