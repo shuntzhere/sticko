@@ -48,6 +48,8 @@ export const Navbar = () => {
             </span>
           </Link>
         </div>
+
+
         <Link to="/login" className="btn">
           Log In
         </Link>
