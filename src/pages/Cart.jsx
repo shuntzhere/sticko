@@ -9,7 +9,7 @@ export const Cart = () => {
   const { cartItems } = state;
   console.log("cart", cartItems.length);
 
-  document.title = "cart";
+  document.title = "Cart";
   return (
     <main className="cards__cart">
       <h1 className="cart__header">Your Cart ({cartItems?.length})</h1>

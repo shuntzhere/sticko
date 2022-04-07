@@ -2,7 +2,6 @@ import React from "react";
 import "./Navbar.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import PersonIcon from "@mui/icons-material/Person";
 import { useCart } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import ListAltIcon from "@mui/icons-material/ListAlt";
@@ -48,7 +47,6 @@ export const Navbar = () => {
             </span>
           </Link>
         </div>
-
 
         <Link to="/login" className="btn">
           Log In
